@@ -29,15 +29,14 @@ class MainController < ApplicationController
   end
   
   def task
-    clusters = ["D30003", "D30005", "D30010", "D30012", "D30016", "D30020", "D30025", "D30028", "D30034", "D30040","D30042", "D30044", "D30048", "D30050", "D30051", "D30056", "D31001", "D31002", "D31009", "D31010", "D31011", "D31013", "D31022", "D31027", "D31028","D31031", "D31033", "D31038", "D31041","D31050"]                 
+    clusters = ["D30003", "D30005", "D30010", "D30012", "D30016", "D30020", "D30025", "D30028", "D30034", "D30040","D30042", "D30044", "D30048", "D30050", "D30051", "D30056", "D31001", "D31002", "D31009", "D31010"]                 
     user_id = params[:user_id]
     @cluster = nil
     for i in 0..clusters.size-1 
       @cluster = clusters[i]
-      count_anno = Annotation.by_cluster_num.key(@cluster).count
-      puts "HHHHHHHHHHHHHHH"
-      puts count_anno
-      if count_anno == 0
+      count_anno_by_user = Annotation.by_cluster_num_and_user_id.key([@cluster, user_id]).count
+      count_anno_by_all = Annotation.by_cluster_num.key(@cluster).count
+      if count_anno_by_user == 0 && count_anno_by_all <= 1
         break
       end  
     end    

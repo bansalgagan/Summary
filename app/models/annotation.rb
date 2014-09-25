@@ -8,5 +8,6 @@ class Annotation < CouchRest::Model::Base
   design do
     view :by_user_id
     view :by_cluster_num
+    view :by_cluster_num_and_user_id
   end
 end
