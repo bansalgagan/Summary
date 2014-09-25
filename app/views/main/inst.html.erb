@@ -1,0 +1,12 @@
+<div class="jumbotron">
+	<p>Hello <%= @name%> please read the instructions</p>
+	<ul>
+	  <li>Read all the summaries on the page</li>
+		<li>Find which one is the best overall and write a small description in box at bottom about why you liked it or why others were bad</li>
+		<li>Click on select button of corresponding summary to submit your response</li>
+	</ul>
+	<form role="form" action="/task" method="get">
+		<button type="submit" class="btn btn-lg btn-primary">Continue</button>
+		<input type="hidden" name="user_id" value="<%= @user_id%>">
+	</form>
+</div>

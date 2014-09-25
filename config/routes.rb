@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  
+  root 'main#index'
+  post '/save_user' => 'main#save_user'
+  get '/inst' => 'main#inst'
+  get '/task' => 'main#task'
+  post '/save_response' => 'main#save_response'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

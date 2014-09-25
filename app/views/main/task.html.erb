@@ -1,0 +1,15 @@
+<div class="response-wrapper">
+	<form role="form" action="/save_response" method="post">
+		<p>User: <%=@user.name%>, Clust: <%=@cluster%></p>
+		<% @summaries.each do |summary|%>
+		<div class="col-lg-4 summary">	
+			<%summary.paragraphs.each do |para|%>
+			<p><small><%=para%></small></p>
+			<%end%>
+			<button class="btn btn-primary" type="submit" value="<%= summary.id%>" name="response">Select</button>
+		</div>
+		<%end%>
+		<input type="hidden" name="user_id" value="<%=@user.id%>">
+		<textarea id="desc" name="description" class="form-control" placeholder="Enter description here"></textarea>
+	</form>
+</div>
