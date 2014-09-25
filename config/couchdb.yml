@@ -13,9 +13,9 @@ test:
 
 production:
   protocol: 'https'
-  host: localhost
-  port: 5984
+  host: gagan.cloudant.com
+  port: 443
   prefix: summary
-  suffix: production
-  username: root
-  password: 123
+  suffix: development
+  username:
+  password: 
