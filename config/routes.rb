@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get '/inst' => 'main#inst'
   get '/task' => 'main#task'
   post '/save_response' => 'main#save_response'
+  
+  get '/passage_for_mturk/:clusterName/:algoName' => 'main#passage'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -24,23 +24,24 @@ class MainController < ApplicationController
   
   def inst
     @user_id = params[:user_id]
-    user = User.get(@user_id)
-    @name = user.name
+    # user = User.get(@user_id)
+    # @name = user.name
   end
   
   def task
-    clusters = ["D30003", "D30005", "D30010", "D30012", "D30016", "D30020", "D30025", "D30028", "D30034", "D30040","D30042", "D30044", "D30048", "D30050", "D30051", "D30056", "D31001", "D31002", "D31009", "D31010"]                 
-    user_id = params[:user_id]
-    @cluster = nil
-    for i in 0..clusters.size-1 
-      @cluster = clusters[i]
-      count_anno_by_user = Annotation.by_cluster_num_and_user_id.key([@cluster, user_id]).count
-      count_anno_by_all = Annotation.by_cluster_num.key(@cluster).count
-      if count_anno_by_user == 0 && count_anno_by_all <= 1
-        break
-      end  
-    end    
-    @user = User.get(user_id)
+    # clusters = ["D30005"]
+    # user_id = params[:user_id]
+    # @cluster = nil
+    # for i in 0..clusters.size-1
+    #   @cluster = clusters[i]
+    #   count_anno_by_user = Annotation.by_cluster_num_and_user_id.key([@cluster, user_id]).count
+    #   count_anno_by_all = Annotation.by_cluster_num.key(@cluster).count
+    #   if count_anno_by_user == 0 && count_anno_by_all <= 1
+    #     break
+    #   end
+    # end  
+    @cluster = "D30005"
+    # @user = User.get(user_id)
     @summaries = MSummary.by_cluster_num.key(@cluster).all
   end
   
@@ -52,5 +53,13 @@ class MainController < ApplicationController
     anno = Annotation.new(:user => user, :cluster_num => summary.cluster_num, :best_algo => summary.clustering_algorithm, :reason=>desc)
     anno.save
     redirect_to :action => "task", :user_id=>user.id
+  end
+  
+  def passage
+    @algo = params[:algoName]
+    @cluster = params[:clusterName]
+    puts @algo
+    puts @cluster
+    @summary = MSummary.by_cluster_num_and_clustering_algorithm.key([@cluster, @algo]).first
   end
 end
