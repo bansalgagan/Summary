@@ -7,10 +7,6 @@ development: &development
   username: test
   password: test
 
-test:
-  <<: *development
-  suffix: test
-
 production:
   protocol: 'https'
   host: gagan.cloudant.com
