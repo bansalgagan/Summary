@@ -2,7 +2,7 @@ development: &development
   protocol: 'http'
   host: localhost
   port: 5984
-  prefix: summary2
+  prefix: summdevset
   suffix: development
   username: test
   password: test
