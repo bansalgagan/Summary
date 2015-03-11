@@ -2,7 +2,7 @@ development: &development
   protocol: 'http'
   host: localhost
   port: 5984
-  prefix: summdevset
+  prefix: mfdev
   suffix: development
   username: test
   password: test
@@ -11,7 +11,7 @@ production:
   protocol: 'https'
   host: gagan.cloudant.com
   port: 443
-  prefix: summary
+  prefix: mfdev
   suffix: production
   username:
   password: 
