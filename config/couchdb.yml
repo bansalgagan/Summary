@@ -11,7 +11,7 @@ production:
   protocol: 'https'
   host: gagan.cloudant.com
   port: 443
-  prefix: mfdev
+  prefix: mfdev2
   suffix: production
   username:
   password: 
