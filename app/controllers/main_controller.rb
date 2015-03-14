@@ -60,6 +60,6 @@ class MainController < ApplicationController
     @cluster = params[:clusterName]
     puts @algo
     puts @cluster
-    @summary = MSummary.by_cluster_num_and_clustering_algorithm.key([@cluster, @algo]).first
+    @summary = MSummary.by_cluster_num_and_clustering_algorithm.key([@cluster, @algo.tr('x', '')]).first
   end
 end
